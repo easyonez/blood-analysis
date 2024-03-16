@@ -1,0 +1,13 @@
+
+
+
+Complete Blood Count (CBC) => Normal values: 
+    White blood cells: 4,500 to 11,000 cells per microliter (cells/mcL)
+    Red blood cells: 4.5 million to 5.9 million cells/mcL for men; 4.1 million to 5.1 million cells/mcL for women
+    Hemoglobin: 14 to 17.5 grams per deciliter (gm/dL) for men; 12.3 to 15.3 gm/dL for women
+    Hematocrit: 41.5% to 50.4% for men; 35.9% to 44.6% for women
+    Mean corpuscular volume: 80 to 96
+    Platelets: 150,000 to 450,000 platelets/mcL
+
+Fasting blood glucose (measured after not eating for at least 8 hours):
+Normal range: 70-100 milligrams per deciliter (mg/dL) or 3.9-5.6 millimoles per liter (mmol/L)
