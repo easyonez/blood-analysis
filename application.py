@@ -47,39 +47,79 @@ class MainView:
         self.main_frame.pack(padx=20, pady=20)
         
         # Create and configure the widgets
+        self.title = tk.Label(self.main_frame, text="Blood Analysis 1.0.2")
+        self.title.pack()
         self.label = tk.Label(self.main_frame, text="Welcome to Blood Analysis!")
-        self.label.pack(pady=10)
-        self.__version = tk.Label(self.main_frame, text="1.0.1")
-        self.__version.pack(pady=10)
-        
+        self.label.pack(pady=10)        
         self.button = tk.Button(self.main_frame, text="Click Me", command=self.button_clicked)
         self.button.pack(pady=10)
         
     def button_clicked(self):
         self.button.destroy()
-        self.root.geometry("500x200")
+        self.root.geometry("500x400")
         self.label.config(text="Please enter your information")
 
         self.name_label = tk.Label(self.main_frame, text="Name:")
         self.name_label.pack()
         self.name_entry = tk.Entry(self.main_frame)
         self.name_entry.pack()
-        print(self.name_entry.get())
+
 
         self.age_label = tk.Label(self.main_frame, text="Age:")
         self.age_label.pack()
         self.age_entry = tk.Entry(self.main_frame)
         self.age_entry.pack()
-        print(self.age_entry.get())
 
         self.fasting_label = tk.Label(self.main_frame, text="Fasting? (y/n):")
         self.fasting_label.pack()
         self.fasting_entry = tk.Entry(self.main_frame)
         self.fasting_entry.pack()
-        print(self.fasting_entry.get())
+        self.submit_button = tk.Button(self.main_frame, text="Submit", command=self.submit_clicked)
+        self.submit_button.pack(pady=10)
 
-        # self.submit_button = tk.Button(self.main_frame, text="Submit", command=self.submit_clicked)
-        # self.submit_button.pack(pady=10)
+
+    def submit_clicked(self):
+        name = self.name_entry.get()
+        age = self.age_entry.get()
+        fasting = self.fasting_entry.get()
+        self.information_label = None
+        if fasting == "y":
+            fasting = True
+        elif fasting == "n":
+            fasting = False
+        else:
+            self.information_label = tk.Label(self.main_frame, text="Invalid input")
+            self.information_label.pack()
+            return
+        entry_list = [name, age, fasting]
+        print(entry_list)
+        self.fasting_label.destroy()
+        self.fasting_entry.destroy()
+        self.age_label.destroy()
+        self.age_entry.destroy()
+        self.name_label.destroy()
+        self.name_entry.destroy()
+        self.submit_button.destroy()
+        if self.information_label != None:
+            self.information_label.destroy()
+        self.tests()
+
+    def tests(self):
+        self.label.config(text="Please select the tests you would like to take")
+        self.test_list = tk.Listbox(self.main_frame, selectmode=tk.MULTIPLE)
+        for item in blood_test_items:
+            self.test_list.insert(tk.END, item)
+        self.test_list.pack()
+        self.submit_tests_button = tk.Button(self.main_frame, text="Submit Tests", command=self.submit_tests)
+        self.submit_tests_button.pack(pady=10)
+
+    def submit_tests(self):
+        selected_tests = self.test_list.curselection()
+        print(selected_tests)
+        self.label.config(text="Thank you for submitting your tests")
+        self.test_list.destroy()
+        self.submit_tests_button.destroy()  
+
 
 def application():
     root = tk.Tk()
