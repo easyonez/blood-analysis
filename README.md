@@ -11,6 +11,7 @@ I'm doing an "information collect campaign" as i'm not a doctor, that means that
 
 - 1.0.0 Basis
 - 1.0.1 Add of a visual window
+- 1.0.2 Adding some functions
 
 ## Authors
 
