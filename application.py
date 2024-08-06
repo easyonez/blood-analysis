@@ -14,7 +14,6 @@ blood_test_items = [
     "Iron Levels",
     "Vitamin Levels",
     "Hormone Levels",
-    # Add more items as neded
 ]
 
 def test():
